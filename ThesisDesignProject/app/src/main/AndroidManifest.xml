@@ -16,6 +16,10 @@
             android:name=".SendSMS"
             android:label="@string/title_activity_send_sms" >
         </activity>
+        <activity
+            android:name=".ViewLogPage"
+            android:label="@string/title_activity_view_log_page" >
+        </activity>
     </application>
 
     <!--

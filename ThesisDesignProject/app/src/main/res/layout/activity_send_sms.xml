@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/front"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp" />
+        android:layout_toRightOf="@+id/timeHours"
+        android:layout_toEndOf="@+id/timeHours" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,7 +24,7 @@
         android:text="@string/speedName"
         android:id="@+id/speedName"
         android:layout_toStartOf="@+id/front"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="39dp"
         android:layout_below="@+id/front"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -34,12 +34,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/speeds"
         android:entries="@array/speed"
-        android:layout_toEndOf="@+id/speedName"
-        android:layout_below="@+id/front"
-        android:layout_alignRight="@+id/timeMinutes"
-        android:layout_alignEnd="@+id/timeMinutes"
-        android:layout_alignLeft="@+id/front"
-        android:layout_alignStart="@+id/front" />
+        android:layout_toEndOf="@+id/time"
+        android:layout_alignTop="@+id/speedName"
+        android:layout_toRightOf="@+id/time" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,39 +46,39 @@
         android:id="@+id/time"
         android:layout_below="@+id/speeds"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="48dp" />
+        android:layout_alignParentStart="true" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/timeHours"
         android:entries="@array/timeHour"
-        android:layout_below="@+id/speeds"
-        android:layout_alignLeft="@+id/speeds"
-        android:layout_alignStart="@+id/speeds"
-        android:layout_alignBottom="@+id/timeMinutes" />
+        android:layout_below="@+id/time"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/temps"
+        android:layout_alignEnd="@+id/temps" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/timeMinutes"
         android:entries="@array/timeMinute"
-        android:layout_toEndOf="@+id/speedName"
+        android:layout_toEndOf="@+id/pauseBtn"
+        android:layout_toStartOf="@+id/timeSeconds"
+        android:layout_alignTop="@+id/timeHours"
         android:layout_alignLeft="@+id/front"
         android:layout_alignStart="@+id/front"
-        android:layout_marginLeft="72dp"
-        android:layout_below="@+id/speeds" />
+        android:layout_toLeftOf="@+id/timeSeconds" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/timeSeconds"
         android:entries="@array/timeSecond"
-        android:layout_toEndOf="@+id/front"
-        android:layout_alignTop="@+id/timeHours"
-        android:layout_toRightOf="@+id/front"
-        android:layout_alignBottom="@+id/timeHours" />
+        android:layout_toEndOf="@+id/editBtn"
+        android:layout_alignTop="@+id/timeMinutes"
+        android:layout_toRightOf="@+id/editBtn" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -90,7 +87,7 @@
         android:text="@string/temperatureName"
         android:id="@+id/temps"
         android:layout_toStartOf="@+id/timeMinutes"
-        android:layout_above="@+id/temperatures"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -99,17 +96,52 @@
         android:layout_height="wrap_content"
         android:id="@+id/temperatures"
         android:entries="@array/temperature"
-        android:layout_toEndOf="@+id/temps"
-        android:layout_above="@+id/button"
-        android:layout_toRightOf="@+id/temps" />
+        android:layout_toEndOf="@+id/speedName"
+        android:layout_below="@+id/temps"
+        android:layout_alignRight="@+id/timeMinutes"
+        android:layout_alignEnd="@+id/timeMinutes" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:text="START"
         android:id="@+id/button"
+        android:layout_marginBottom="54dp"
+        android:layout_toEndOf="@+id/speedName"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="61dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PAUSE"
+        android:id="@+id/pauseBtn"
+        android:layout_toEndOf="@+id/button"
+        android:layout_alignTop="@+id/button"
+        android:layout_toRightOf="@+id/button" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EXIT"
+        android:id="@+id/exitBtn"
+        android:layout_toEndOf="@+id/timeMinutes"
+        android:layout_alignTop="@+id/editBtn"
+        android:layout_toRightOf="@+id/timeMinutes"
+        android:layout_alignRight="@+id/timeSeconds"
+        android:layout_alignEnd="@+id/timeSeconds" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EDIT"
+        android:id="@+id/editBtn"
+        android:layout_toEndOf="@+id/pauseBtn"
+        android:layout_alignTop="@+id/pauseBtn"
+        android:layout_toRightOf="@+id/pauseBtn" />
 </RelativeLayout>
